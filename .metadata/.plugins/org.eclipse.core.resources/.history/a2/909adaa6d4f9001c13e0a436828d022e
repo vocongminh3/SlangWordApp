@@ -160,25 +160,25 @@ public class Main {
 	}
 
 	private static void DeleteSlang() {
-		String scan;
-		while (true) {
-			System.out.println("Nhập d để xóa : ");
-			System.out.println("Nhập t : để thoát : ");
-			scan = sc.next();
-			if (scan.equals("t"))
-				return;
-			else if (scan.equals("d")) {
-				System.out.println("Nhập từ khóa tìm kiếm : ");
-				scan = sc.next();	
-					if (slangWords.get(scan) == null) {
-						System.out.println("Không tìm thấy kết quả");
-					} else {
-					slangWords.remove(scan);
-					System.out.println("Xóa thành công");
-				
-				}
-		}
-		}
+//		String scan;
+//		while (true) {
+//			System.out.println("Nhập d để xóa : ");
+//			System.out.println("Nhập t : để thoát : ");
+//			scan = sc.next();
+//			if (scan.equals("t"))
+//				return;
+//			else if (scan.equals("d")) {
+//				System.out.println("Nhập từ khóa tìm kiếm : ");
+//				scan = sc.next();	
+//					if (slangWords.get(scan) == null) {
+//						System.out.println("Không tìm thấy kết quả");
+//					} else {
+//					slangWords.remove(scan);
+//					System.out.println("Xóa thành công");
+//				
+//				}
+//		}
+//		}
 	}
 
 	private static void Reset() throws Exception {
