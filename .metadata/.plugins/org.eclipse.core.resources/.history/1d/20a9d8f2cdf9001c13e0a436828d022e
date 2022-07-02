@@ -56,31 +56,36 @@ public class Main {
 	}
 
 	private static void AddSlang() {
-		String scan;
-		String key;
-		String definition;
-		ArrayList<String> arrDefintion = new ArrayList<String>();
-		while (true) {
-
-			System.out.println("Nhập t : để thoát");
-			System.out.println("Nhập a : để thêm slang word");
-			scan = sc.next();
-			if (scan.equals("t"))
-				return;
-			else if (scan.equals("a")) {
-				System.out.println("Nhập từ khóa : ");
-				key = sc.next();
-				System.out.println("Nhập định nghĩa : ");
-				definition = sc.next();
-				if (definition.split("[|]").length > 1) {
-					for (String s : definition.split("[|]")) {
-						arrDefintion.add(s);
-					}
-				} else {
-					arrDefintion.add(definition);
-				}
-				slangWords.put(key, arrDefintion);
-			}
+//		String scan;
+//		String key;
+//		String definition;
+//		ArrayList<String> arrDefintion = new ArrayList<String>();
+//		while (true) {
+//
+//			System.out.println("Nhập t : để thoát");
+//			System.out.println("Nhập a : để thêm slang word");
+//			scan = sc.next();
+//			if (scan.equals("t"))
+//				return;
+//			else if (scan.equals("a")) {
+//				System.out.println("Nhập từ khóa : ");
+//				key = sc.next();
+//				System.out.println("Nhập định nghĩa : ");
+//				definition = sc.next();
+//				if (definition.split("[|]").length > 1) {
+//					for (String s : definition.split("[|]")){
+//						arrDefintion.add(s);
+//					}
+//				}
+//				else
+//				{
+//					arrDefintion.add(definition);
+//				}
+//				slangWords.put(key, arrDefintion);
+//			}
+			
+			
+			
 
 		}
 
