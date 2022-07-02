@@ -1,15 +1,12 @@
 package Main;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 import java.util.Random;
-
 public class Main {
 	static HashMap<String, ArrayList<String>> slangWords = new HashMap<String, ArrayList<String>>();
 	static ArrayList<String> history = new ArrayList<String>();
@@ -188,23 +185,48 @@ public class Main {
 		System.out.println("Reset danh sách gốc thành công");
 	}
 	
-	private static void Random() {
-//		Random r = new Random();
-//		int location = 0;
-//		int i = r.nextInt(slangWords.size());
-//		for (String key : slangWords.keySet()) {
-//			if(location == i)
-//			{
-//				//System.out.println("Slang RanDom");
-//				System.out.println(key);
-//				for (String value : slangWords.get(key)) {
-//					System.out.println( value);
-//					
-//				}
-//				break;
-//			}
-//			location++;
-//			
+	private static String Random() {
+		Random r = new Random();
+		int location = 0;
+		String result = "";
+		int i = r.nextInt(slangWords.size());
+		for (String key : slangWords.keySet()) {
+			if(location == i)
+			{				
+				result = key;
+				break;
+			}
+			location++;
+		}
+		return result;
+	}
+	
+	private static void RandomSlang() {
+//		int scan ;
+//		String c0 =Random(); // result
+//		String c1 =Random();
+//		String c2 =Random();
+//		String c3 =Random();
+//		System.out.println("Từ khóa là : " + c0);
+//		ArrayList<String> arr = new ArrayList<String>();
+//		arr.add(c0);
+//		arr.add(c1);
+//		arr.add(c2);
+//		arr.add(c3);
+//		Collections.sort(arr);
+//		for (int i = 0; i < 4; i++) {
+//			System.out.println(i+1 + " " + slangWords.get(arr.get(i)));
+//		}
+//		
+//		System.out.println("Chọn đáp án : ");
+//		scan = sc.nextInt()-1;
+//		if(arr.get(scan).equals(c0) )
+//		{
+//			System.out.println("Đáp án chính xác ");
+//		}
+//		else
+//		{
+//			System.out.println("Đáp án sai. Đáp án đúng là "+slangWords.get(c0));
 //		}
 	}
 	
@@ -250,10 +272,14 @@ public class Main {
 				Reset();
 				break;
 			case 8:
-				Random();
+				String key = Random();
+				System.out.println(key);
+				for (String value : slangWords.get(key)) {
+					System.out.println( value);
+				}
 				break;
 			case 9:
-				System.out.println("Sunday");
+				RandomSlang();
 				break;
 			case 10:
 				System.out.println("Sunday");
@@ -261,6 +287,7 @@ public class Main {
 			default:
 				System.out.println("Vui lòng chọn lại");
 			}
+
 		} while (choice != 0);
 		
 	}
