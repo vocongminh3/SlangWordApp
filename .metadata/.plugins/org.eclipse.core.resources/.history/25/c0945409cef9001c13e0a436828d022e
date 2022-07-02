@@ -87,21 +87,21 @@ public class Main {
 	}
 
 	private static void History() {
-		String scan;
-		if (history.isEmpty()) {
-			System.out.println("Không có dữ liệu");
-		} else {
-			for (String i : history) {
-				System.out.println(i);
-			}
-
-		}
-		while (true) {
-			System.out.println("Nhập t : để thoát");
-			scan = sc.next();
-			if (scan.equals("t"))
-				return;
-		}
+//		String scan;
+//		if (history.isEmpty()) {
+//			System.out.println("Không có dữ liệu");
+//		} else {
+//			for (String i : history) {
+//				System.out.println(i);
+//			}
+//
+//		}
+//		while (true) {
+//			System.out.println("Nhập t : để thoát");
+//			scan = sc.next();
+//			if (scan.equals("t"))
+//				return;
+//		}
 	}
 
 	public static void main(String[] args) throws Exception {
