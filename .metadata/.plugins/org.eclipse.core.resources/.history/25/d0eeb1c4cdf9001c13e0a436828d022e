@@ -32,26 +32,26 @@ public class Main {
 	}
 
 	private static void SearchDefinition() {
-		String scan;
-		while (true) {
-			System.out.println("Nhập từ khóa tìm kiếm : ");
-			System.out.println("Nhập t : để thoát");
-			scan = sc.next();
-			if (scan.equals("T"))
-				return;
-			boolean check = false;
-			for (String key : slangWords.keySet()) {
-				for (String value : slangWords.get(key)) {
-					if (value.contains(scan)) {
-						check = true;
-						System.out.println(key);
-					}
-				}
-			}
-
-			if (!check)
-				System.out.println("Không tìm thấy kết quả");
-		}
+//		String scan;
+//		while (true) {
+//			System.out.println("Nhập từ khóa tìm kiếm : ");
+//			System.out.println("Nhập t : để thoát");
+//			scan = sc.next();
+//			if (scan.equals("T"))
+//				return;
+//			boolean check = false;
+//			for (String key : slangWords.keySet()) {
+//				for (String value : slangWords.get(key)) {
+//					if (value.contains(scan)) {
+//						check = true;
+//						System.out.println(key);
+//					}
+//				}
+//			}
+//
+//			if (!check)
+//				System.out.println("Không tìm thấy kết quả");
+//		}
 
 	}
 
