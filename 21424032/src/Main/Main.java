@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.util.Random;
 
 public class Main {
 	static HashMap<String, ArrayList<String>> slangWords = new HashMap<String, ArrayList<String>>();
@@ -187,9 +189,21 @@ public class Main {
 	}
 	
 	private static void Random() {
-		
-//		int i = 0;
+//		Random r = new Random();
+//		int location = 0;
+//		int i = r.nextInt(slangWords.size());
 //		for (String key : slangWords.keySet()) {
+//			if(location == i)
+//			{
+//				//System.out.println("Slang RanDom");
+//				System.out.println(key);
+//				for (String value : slangWords.get(key)) {
+//					System.out.println( value);
+//					
+//				}
+//				break;
+//			}
+//			location++;
 //			
 //		}
 	}
@@ -236,7 +250,7 @@ public class Main {
 				Reset();
 				break;
 			case 8:
-				System.out.println("Sunday");
+				Random();
 				break;
 			case 9:
 				System.out.println("Sunday");
@@ -248,7 +262,7 @@ public class Main {
 				System.out.println("Vui lòng chọn lại");
 			}
 		} while (choice != 0);
-
+		
 	}
 
 }
