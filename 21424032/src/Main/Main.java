@@ -7,13 +7,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Random;
+
 public class Main {
 	static HashMap<String, ArrayList<String>> slangWords = new HashMap<String, ArrayList<String>>();
 	static ArrayList<String> history = new ArrayList<String>();
 	static Scanner sc = new Scanner(System.in);
 
-	private static void LoadData() throws Exception
-	{
+	private static void LoadData() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("slang.txt"));
 		String st;
 		while ((st = br.readLine()) != null) {
@@ -33,16 +33,16 @@ public class Main {
 			}
 		}
 	}
-	
+
 	private static void SearchKey() {
 		String scan;
 		while (true) {
 			System.out.println("Nhập từ khóa tìm kiếm : ");
 			System.out.println("Nhập t : để thoát");
 			scan = sc.next();
-			history.add(scan);
 			if (scan.equals("t"))
 				return;
+			history.add(scan);
 			if (slangWords.get(scan) == null) {
 				System.out.println("Không tìm thấy kết quả");
 			} else {
@@ -60,7 +60,7 @@ public class Main {
 			System.out.println("Nhập từ khóa tìm kiếm : ");
 			System.out.println("Nhập t : để thoát");
 			scan = sc.next();
-			if (scan.equals("T"))
+			if (scan.equals("t"))
 				return;
 			boolean check = false;
 			for (String key : slangWords.keySet()) {
@@ -140,21 +140,21 @@ public class Main {
 				return;
 			else if (scan.equals("u")) {
 				System.out.println("Nhập từ khóa tìm kiếm : ");
-				scan = sc.next();	
-					if (slangWords.get(scan) == null) {
-						System.out.println("Không tìm thấy kết quả");
-					} else {
+				scan = sc.next();
+				if (slangWords.get(scan) == null) {
+					System.out.println("Không tìm thấy kết quả");
+				} else {
 					System.out.println("Nhập từ khóa mới : ");
 					key = sc.next();
-					
+
 					arrDefintion = slangWords.get(scan);
-					
+
 					slangWords.remove(scan);
 					slangWords.put(key, arrDefintion);
 					System.out.println("Chỉnh sửa thành công");
-				
+
 				}
-		}
+			}
 		}
 	}
 
@@ -168,31 +168,31 @@ public class Main {
 				return;
 			else if (scan.equals("d")) {
 				System.out.println("Nhập từ khóa tìm kiếm : ");
-				scan = sc.next();	
-					if (slangWords.get(scan) == null) {
-						System.out.println("Không tìm thấy kết quả");
-					} else {
+				scan = sc.next();
+				if (slangWords.get(scan) == null) {
+					System.out.println("Không tìm thấy kết quả");
+				} else {
 					slangWords.remove(scan);
 					System.out.println("Xóa thành công");
-				
+
 				}
-		}
+			}
 		}
 	}
 
 	private static void Reset() throws Exception {
+		slangWords.clear();
 		LoadData();
 		System.out.println("Reset danh sách gốc thành công");
 	}
-	
+
 	private static String Random() {
 		Random r = new Random();
 		int location = 0;
 		String result = "";
 		int i = r.nextInt(slangWords.size());
 		for (String key : slangWords.keySet()) {
-			if(location == i)
-			{				
+			if (location == i) {
 				result = key;
 				break;
 			}
@@ -200,13 +200,13 @@ public class Main {
 		}
 		return result;
 	}
-	
+
 	private static void RandomSlang() {
-		int scan ;
-		String c0 =Random(); // result
-		String c1 =Random();
-		String c2 =Random();
-		String c3 =Random();
+		int scan;
+		String c0 = Random(); // result
+		String c1 = Random();
+		String c2 = Random();
+		String c3 = Random();
 		System.out.println("Từ khóa là : " + c0);
 		ArrayList<String> arr = new ArrayList<String>();
 		arr.add(c0);
@@ -215,27 +215,28 @@ public class Main {
 		arr.add(c3);
 		Collections.sort(arr);
 		for (int i = 0; i < 4; i++) {
-			System.out.println(i+1 + " " + slangWords.get(arr.get(i)));
+			System.out.println(i + 1 + " " + slangWords.get(arr.get(i)));
 		}
+		do {
+			System.out.println("Chọn đáp án : ");
+			scan = sc.nextInt();
+		} while (scan < 1 || scan > 4);
+		scan -=1;
+			if (arr.get(scan).equals(c0)) {
+				System.out.println("Đáp án chính xác ");
+			} else {
+				System.out.println("Đáp án sai. Đáp án đúng là " + slangWords.get(c0));
+			}
 		
-		System.out.println("Chọn đáp án : ");
-		scan = sc.nextInt()-1;
-		if(arr.get(scan).equals(c0) )
-		{
-			System.out.println("Đáp án chính xác ");
-		}
-		else
-		{
-			System.out.println("Đáp án sai. Đáp án đúng là "+slangWords.get(c0));
-		}
+
 	}
-	
+
 	private static void RandomDefinition() {
-		int scan ;
-		String c0 =Random(); // result
-		String c1 =Random();
-		String c2 =Random();
-		String c3 =Random();
+		int scan;
+		String c0 = Random(); // result
+		String c1 = Random();
+		String c2 = Random();
+		String c3 = Random();
 		System.out.println("Định nghĩa là : " + slangWords.get(c0));
 		ArrayList<String> arr = new ArrayList<String>();
 		arr.add(c0);
@@ -244,21 +245,21 @@ public class Main {
 		arr.add(c3);
 		Collections.sort(arr);
 		for (int i = 0; i < 4; i++) {
-			System.out.println(i+1 + " " + arr.get(i));
+			System.out.println(i + 1 + " " + arr.get(i));
 		}
+		do {
+			System.out.println("Chọn đáp án : ");
+			scan = sc.nextInt() ;
+		} while (scan < 1 || scan > 4);
+		scan -=1;
+			if (arr.get(scan).equals(c0)) {
+				System.out.println("Đáp án chính xác ");
+			} else {
+				System.out.println("Đáp án sai. Đáp án đúng là " + c0);
+			}
 		
-		System.out.println("Chọn đáp án : ");
-		scan = sc.nextInt()-1;
-		if(arr.get(scan).equals(c0))
-		{
-			System.out.println("Đáp án chính xác ");
-		}
-		else
-		{
-			System.out.println("Đáp án sai. Đáp án đúng là "+c0);
-		}
 	}
-	
+
 	public static void main(String[] args) throws Exception {
 
 		LoadData();
@@ -304,7 +305,7 @@ public class Main {
 				String key = Random();
 				System.out.println(key);
 				for (String value : slangWords.get(key)) {
-					System.out.println( value);
+					System.out.println(value);
 				}
 				break;
 			case 9:
@@ -318,7 +319,7 @@ public class Main {
 			}
 
 		} while (choice != 0);
-		
+
 	}
 
 }
