@@ -182,8 +182,8 @@ public class Main {
 	}
 
 	private static void Reset() throws Exception {
-		LoadData();
-		System.out.println("Reset danh sách gốc thành công");
+//		LoadData();
+//		System.out.println("Reset danh sách gốc thành công");
 	}
 	
 	private static void Random() {
