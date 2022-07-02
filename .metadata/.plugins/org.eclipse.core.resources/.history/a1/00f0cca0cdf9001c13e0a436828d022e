@@ -32,57 +32,57 @@ public class Main {
 	}
 
 	private static void SearchDefinition() {
-//		String scan;
-//		while (true) {
-//			System.out.println("Nhập từ khóa tìm kiếm : ");
-//			System.out.println("Nhập t : để thoát");
-//			scan = sc.next();
-//			if (scan.equals("T"))
-//				return;
-//			boolean check = false;
-//			for (String key : slangWords.keySet()) {
-//				for (String value : slangWords.get(key)) {
-//					if (value.contains(scan)) {
-//						check = true;
-//						System.out.println(key);
-//					}
-//				}
-//			}
-//
-//			if (!check)
-//				System.out.println("Không tìm thấy kết quả");
-//		}
+		String scan;
+		while (true) {
+			System.out.println("Nhập từ khóa tìm kiếm : ");
+			System.out.println("Nhập t : để thoát");
+			scan = sc.next();
+			if (scan.equals("T"))
+				return;
+			boolean check = false;
+			for (String key : slangWords.keySet()) {
+				for (String value : slangWords.get(key)) {
+					if (value.contains(scan)) {
+						check = true;
+						System.out.println(key);
+					}
+				}
+			}
+
+			if (!check)
+				System.out.println("Không tìm thấy kết quả");
+		}
 
 	}
 
 	private static void AddSlang() {
-//		String scan;
-//		String key;
-//		String definition;
-//		ArrayList<String> arrDefintion = new ArrayList<String>();
-//		while (true) {
-//
-//			System.out.println("Nhập t : để thoát");
-//			System.out.println("Nhập a : để thêm slang word");
-//			scan = sc.next();
-//			if (scan.equals("t"))
-//				return;
-//			else if (scan.equals("a")) {
-//				System.out.println("Nhập từ khóa : ");
-//				key = sc.next();
-//				System.out.println("Nhập định nghĩa : ");
-//				definition = sc.next();
-//				if (definition.split("[|]").length > 1) {
-//					for (String s : definition.split("[|]")){
-//						arrDefintion.add(s);
-//					}
-//				}
-//				else
-//				{
-//					arrDefintion.add(definition);
-//				}
-//				slangWords.put(key, arrDefintion);
-//			}
+		String scan;
+		String key;
+		String definition;
+		ArrayList<String> arrDefintion = new ArrayList<String>();
+		while (true) {
+
+			System.out.println("Nhập t : để thoát");
+			System.out.println("Nhập a : để thêm slang word");
+			scan = sc.next();
+			if (scan.equals("t"))
+				return;
+			else if (scan.equals("a")) {
+				System.out.println("Nhập từ khóa : ");
+				key = sc.next();
+				System.out.println("Nhập định nghĩa : ");
+				definition = sc.next();
+				if (definition.split("[|]").length > 1) {
+					for (String s : definition.split("[|]")){
+						arrDefintion.add(s);
+					}
+				}
+				else
+				{
+					arrDefintion.add(definition);
+				}
+				slangWords.put(key, arrDefintion);
+			}
 			
 			
 			
@@ -92,21 +92,21 @@ public class Main {
 	}
 
 	private static void History() {
-//		String scan;
-//		if (history.isEmpty()) {
-//			System.out.println("Không có dữ liệu");
-//		} else {
-//			for (String i : history) {
-//				System.out.println(i);
-//			}
-//
-//		}
-//		while (true) {
-//			System.out.println("Nhập t : để thoát");
-//			scan = sc.next();
-//			if (scan.equals("t"))
-//				return;
-//		}
+		String scan;
+		if (history.isEmpty()) {
+			System.out.println("Không có dữ liệu");
+		} else {
+			for (String i : history) {
+				System.out.println(i);
+			}
+
+		}
+		while (true) {
+			System.out.println("Nhập t : để thoát");
+			scan = sc.next();
+			if (scan.equals("t"))
+				return;
+		}
 	}
 
 	public static void main(String[] args) throws Exception {
