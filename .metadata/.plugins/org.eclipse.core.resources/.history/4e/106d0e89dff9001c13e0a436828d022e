@@ -244,18 +244,18 @@ public class Main {
 		arr.add(c3);
 		Collections.sort(arr);
 		for (int i = 0; i < 4; i++) {
-			System.out.println(i+1 + " " + arr.get(i));
+			System.out.println(i+1 + " " + slangWords.get(arr.get(i)));
 		}
 		
 		System.out.println("Chọn đáp án : ");
 		scan = sc.nextInt()-1;
-		if(arr.get(scan).equals(c0))
+		if(arr.get(scan).equals(c0) )
 		{
 			System.out.println("Đáp án chính xác ");
 		}
 		else
 		{
-			System.out.println("Đáp án sai. Đáp án đúng là "+c0);
+			System.out.println("Đáp án sai. Đáp án đúng là "+slangWords.get(c0));
 		}
 	}
 	

@@ -230,35 +230,6 @@ public class Main {
 		}
 	}
 	
-	private static void RandomDefinition() {
-		int scan ;
-		String c0 =Random(); // result
-		String c1 =Random();
-		String c2 =Random();
-		String c3 =Random();
-		System.out.println("Định nghĩa là : " + slangWords.get(c0));
-		ArrayList<String> arr = new ArrayList<String>();
-		arr.add(c0);
-		arr.add(c1);
-		arr.add(c2);
-		arr.add(c3);
-		Collections.sort(arr);
-		for (int i = 0; i < 4; i++) {
-			System.out.println(i+1 + " " + arr.get(i));
-		}
-		
-		System.out.println("Chọn đáp án : ");
-		scan = sc.nextInt()-1;
-		if(arr.get(scan).equals(c0))
-		{
-			System.out.println("Đáp án chính xác ");
-		}
-		else
-		{
-			System.out.println("Đáp án sai. Đáp án đúng là "+c0);
-		}
-	}
-	
 	public static void main(String[] args) throws Exception {
 
 		LoadData();
@@ -311,7 +282,7 @@ public class Main {
 				RandomSlang();
 				break;
 			case 10:
-				RandomDefinition();
+				System.out.println("Sunday");
 				break;
 			default:
 				System.out.println("Vui lòng chọn lại");

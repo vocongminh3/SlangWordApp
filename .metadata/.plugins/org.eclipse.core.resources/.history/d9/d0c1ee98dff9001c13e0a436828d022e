@@ -249,13 +249,13 @@ public class Main {
 		
 		System.out.println("Chọn đáp án : ");
 		scan = sc.nextInt()-1;
-		if(arr.get(scan).equals(c0))
+		if(arr.get(scan).equals(c0) )
 		{
 			System.out.println("Đáp án chính xác ");
 		}
 		else
 		{
-			System.out.println("Đáp án sai. Đáp án đúng là "+c0);
+			System.out.println("Đáp án sai. Đáp án đúng là "+slangWords.get(c0));
 		}
 	}
 	

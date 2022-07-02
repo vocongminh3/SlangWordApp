@@ -255,7 +255,7 @@ public class Main {
 		}
 		else
 		{
-			System.out.println("Đáp án sai. Đáp án đúng là "+c0);
+			System.out.println("Đáp án sai. Đáp án đúng là "+slangWords.get(c0));
 		}
 	}
 	
