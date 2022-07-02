@@ -1,9 +1,11 @@
 package Main;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +13,28 @@ public class Main {
 	static ArrayList<String> history = new ArrayList<String>();
 	static Scanner sc = new Scanner(System.in);
 
+	private static void LoadData() throws Exception
+	{
+		BufferedReader br = new BufferedReader(new FileReader("slang.txt"));
+		String st;
+		while ((st = br.readLine()) != null) {
+			if (st.indexOf("`") != -1) // have character in string
+			{
+				String[] arrLine = st.split("`");
+				ArrayList<String> defintion = new ArrayList<String>();
+				if (arrLine[1].split("[|]").length > 1) {
+					for (String s : arrLine[1].split("[|]")) {
+						defintion.add(s);
+					}
+
+				} else {
+					defintion.add(arrLine[1]);
+				}
+				slangWords.put(arrLine[0], defintion);
+			}
+		}
+	}
+	
 	private static void SearchKey() {
 		String scan;
 		while (true) {
@@ -80,6 +104,7 @@ public class Main {
 					arrDefintion.add(definition);
 				}
 				slangWords.put(key, arrDefintion);
+				System.out.println("Thêm thành công");
 			}
 
 		}
@@ -104,27 +129,74 @@ public class Main {
 		}
 	}
 
+	private static void EditSlang() {
+		String scan;
+		String key;
+		ArrayList<String> arrDefintion = new ArrayList<String>();
+		while (true) {
+			System.out.println("Nhập u để chỉnh sửa : ");
+			System.out.println("Nhập t : để thoát");
+			scan = sc.next();
+			if (scan.equals("t"))
+				return;
+			else if (scan.equals("u")) {
+				System.out.println("Nhập từ khóa tìm kiếm : ");
+				scan = sc.next();	
+					if (slangWords.get(scan) == null) {
+						System.out.println("Không tìm thấy kết quả");
+					} else {
+					System.out.println("Nhập từ khóa mới : ");
+					key = sc.next();
+					
+					arrDefintion = slangWords.get(scan);
+					
+					slangWords.remove(scan);
+					slangWords.put(key, arrDefintion);
+					System.out.println("Chỉnh sửa thành công");
+				
+				}
+		}
+		}
+	}
+
+	private static void DeleteSlang() {
+//		String scan;
+//		while (true) {
+//			System.out.println("Nhập d để xóa : ");
+//			System.out.println("Nhập t : để thoát : ");
+//			scan = sc.next();
+//			if (scan.equals("t"))
+//				return;
+//			else if (scan.equals("d")) {
+//				System.out.println("Nhập từ khóa tìm kiếm : ");
+//				scan = sc.next();	
+//					if (slangWords.get(scan) == null) {
+//						System.out.println("Không tìm thấy kết quả");
+//					} else {
+//					slangWords.remove(scan);
+//					System.out.println("Xóa thành công");
+//				
+//				}
+//		}
+//		}
+	}
+
+	private static void Reset() throws Exception {
+//		LoadData();
+//		System.out.println("Reset danh sách gốc thành công");
+	}
+	
+	private static void Random() {
+		
+//		int i = 0;
+//		for (String key : slangWords.keySet()) {
+//			
+//		}
+	}
+	
 	public static void main(String[] args) throws Exception {
 
-		BufferedReader br = new BufferedReader(new FileReader("slang.txt"));
-		String st;
-		while ((st = br.readLine()) != null) {
-			if (st.indexOf("`") != -1) // have character in string
-			{
-				String[] arrLine = st.split("`");
-				ArrayList<String> defintion = new ArrayList<String>();
-				if (arrLine[1].split("[|]").length > 1) {
-					for (String s : arrLine[1].split("[|]")) {
-						defintion.add(s);
-					}
-
-				} else {
-					defintion.add(arrLine[1]);
-				}
-				slangWords.put(arrLine[0], defintion);
-			}
-
-		}
+		LoadData();
 		int choice;
 		do {
 			System.out.println("1. Tìm kiếm theo slang word ");
@@ -155,13 +227,13 @@ public class Main {
 				AddSlang();
 				break;
 			case 5:
-				System.out.println("Friday");
+				EditSlang();
 				break;
 			case 6:
-				System.out.println("Saturday");
+				DeleteSlang();
 				break;
 			case 7:
-				System.out.println("Sunday");
+				Reset();
 				break;
 			case 8:
 				System.out.println("Sunday");
