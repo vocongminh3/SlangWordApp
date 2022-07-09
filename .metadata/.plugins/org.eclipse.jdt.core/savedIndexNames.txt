@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+C:\Users\ThinkKING\Desktop\Final\LienThong\HK1Nam2\Java\SlangWordApp\.metadata\.plugins\org.eclipse.jdt.core
-2550615201.index
