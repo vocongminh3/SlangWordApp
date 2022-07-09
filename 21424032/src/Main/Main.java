@@ -1,10 +1,17 @@
 package Main;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -12,8 +19,29 @@ public class Main {
 	static HashMap<String, ArrayList<String>> slangWords = new HashMap<String, ArrayList<String>>();
 	static ArrayList<String> history = new ArrayList<String>();
 	static Scanner sc = new Scanner(System.in);
-
+	
 	private static void LoadData() throws Exception {
+		BufferedReader br = new BufferedReader(new FileReader("data.txt"));
+		String st;
+		while ((st = br.readLine()) != null) {
+			if (st.indexOf("`") != -1) // have character in string
+			{
+				String[] arrLine = st.split("`");
+				ArrayList<String> defintion = new ArrayList<String>();
+				if (arrLine[1].split("[|]").length > 1) {
+					for (String s : arrLine[1].split("[|]")) {
+						defintion.add(s);
+					}
+
+				} else {
+					defintion.add(arrLine[1]);
+				}
+				slangWords.put(arrLine[0], defintion);
+			}
+		}
+	}
+
+	private static void LoadDataOld() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("slang.txt"));
 		String st;
 		while ((st = br.readLine()) != null) {
@@ -182,10 +210,47 @@ public class Main {
 
 	private static void Reset() throws Exception {
 		slangWords.clear();
-		LoadData();
+		LoadDataOld();
 		System.out.println("Reset danh sách gốc thành công");
 	}
 
+	private static void WriteFile()
+	{
+		
+		BufferedWriter  bf = null;
+		
+	        try {
+	  
+	            // create new BufferedWriter for the output file
+	        	bf = new BufferedWriter(new FileWriter("data.txt"));
+	  
+	            // iterate map entries
+	            for (Entry<String, ArrayList<String>> entry :
+	            	slangWords.entrySet()) {
+	  
+	                // put key and value separated by a colon
+	            	String line = entry.getKey()+ "`"+ String.join("|", entry.getValue());;
+	                bf.write(line);
+	                // new line
+	                bf.newLine();
+	            }
+	  
+	            bf.flush();
+	        }
+	        catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	        finally {
+	  
+	            try {
+	  	                bf.close();
+	            }
+	            catch (Exception e) {
+	            }
+	        }
+	    
+	}
+	
 	private static String Random() {
 		Random r = new Random();
 		int location = 0;
@@ -279,6 +344,7 @@ public class Main {
 			choice = sc.nextInt();
 			switch (choice) {
 			case 0:
+				WriteFile();
 				break;
 			case 1:
 				SearchKey();
